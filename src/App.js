@@ -6,6 +6,7 @@ import Person from './Person/Person';
 import UserInput from './component/UserInput/UserInput';
 import UserOutput from './component/UserOutput/UserOutput';
 import Practice1 from './Practice/Practice1';
+import ErrorBoundary from './ErrorBoundary/ErrorBoundary';
 
 const App = props => {
 
@@ -124,11 +125,13 @@ const App = props => {
         <div>
           {/* ITERATE person */}
           {personState.persons.map((person, index) => {
-            return <Person key={person.id}
-              click={deletePersonHandler.bind(this, index)}
-              name={person.name}
-              age={person.age}
-              changed={(event) => nameChangeHandler(event, person.id)} />
+            return <ErrorBoundary key={person.id}>
+              <Person
+                click={deletePersonHandler.bind(this, index)}
+                name={person.name}
+                age={person.age}
+                changed={(event) => nameChangeHandler(event, person.id)} />
+            </ErrorBoundary>
           })}
 
           {/* <Person
@@ -154,11 +157,11 @@ const App = props => {
         <UserOutput
           userName={getPerson.name}
           state={personState.otherState} />
-        <UserOutput 
-          userName={getPerson.name}/>
+        <UserOutput
+          userName={getPerson.name} />
         <UserOutput
           userName='Max'
-          state={personState.otherState}/>
+          state={personState.otherState} />
       </div>
     </div >
   );
