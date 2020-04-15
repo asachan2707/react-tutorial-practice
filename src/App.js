@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import classes from './App.module.css';
 import Radium from 'radium';
 import First from './component/1-first'
 import Person from './Person/Person';
@@ -96,8 +96,8 @@ const App = props => {
   }
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div className={classes.App}>
+      <header className={classes.App_header}>
         React App
       </header>
       <Practice1 />
@@ -146,7 +146,7 @@ const App = props => {
       }
 
       <div style={style3}>
-        <span className="GlobalInput">
+        <span className={classes.GlobalInput}>
           <UserInput
             changed={changePersonNameHandler.bind(this, 'Wilson')}
             currentName={getPerson.name} />
