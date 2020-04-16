@@ -1,35 +1,42 @@
 import React, { PureComponent } from 'react';
+
 import Person from './Person/Person';
 
 class Persons extends PureComponent {
-
   // static getDerivedStateFromProps(props, state) {
   //   console.log('[Persons.js] getDerivedStateFromProps');
   //   return state;
   // }
 
-  // when use PureComponent then we dont need to chack props manually in shouldComponentUpdate
+  // componentWillReceiveProps(props) {
+  //   console.log('[Persons.js] componentWillReceiveProps', props);
+  // }
 
   // shouldComponentUpdate(nextProps, nextState) {
   //   console.log('[Persons.js] shouldComponentUpdate');
-  //   if (nextProps.persons !== this.props.persons) {
+  //   if (
+  //     nextProps.persons !== this.props.persons ||
+  //     nextProps.changed !== this.props.changed ||
+  //     nextProps.clicked !== this.props.clicked
+  //   ) {
   //     return true;
   //   } else {
   //     return false;
   //   }
+  //   // return true;
   // }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('[Persons.js] getSnapshotBeforeUpdate');
-    return { message: 'Snapshot' };
+    return { message: 'Snapshot!' };
   }
 
-  // componentWillMount() {
-  //   console.log('[Persons.js] componentWillMount');
+  // componentWillUpdate() {
+
   // }
 
-  componentDidUpdate(prevState, nexrState, snapshot) {
-    console.log('[Persons.js] componentDidMount');
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    console.log('[Persons.js] componentDidUpdate');
     console.log(snapshot);
   }
 
@@ -52,4 +59,5 @@ class Persons extends PureComponent {
     });
   }
 }
+
 export default Persons;
