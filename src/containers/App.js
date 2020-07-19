@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
+import UseCallback from '../example/useCallback/useCallback';
 
 class App extends Component {
   constructor(props) {
@@ -20,15 +21,6 @@ class App extends Component {
     showPersons: false,
     showCockpit: true
   };
-
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('[App.js] getDerivedStateFromProps', props);
-  //   return state;
-  // }
-
-  // componentWillMount() {
-  //   console.log('[App.js] componentWillMount');
-  // }
 
   componentDidMount() {
     console.log('[App.js] componentDidMount');
@@ -91,6 +83,9 @@ class App extends Component {
 
     return (
       <div className={classes.App}>
+        <hr />
+        <UseCallback />
+        <hr />
         <button onClick={() => { this.setState({ showCockpit: !this.state.showCockpit }) }}>Remove cockpit</button>
         {this.state.showCockpit ? <Cockpit
           title={this.props.appTitle}
