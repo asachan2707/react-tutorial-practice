@@ -4,6 +4,8 @@ import classes from './App.css';
 import Persons from '../components/Persons/Persons';
 import Cockpit from '../components/Cockpit/Cockpit';
 import UseCallback from '../example/useCallback/useCallback';
+import UseReducer from '../example/useReducer/useReducer';
+import ExampleTodo from '../example/useReducer/ExampleTodo';
 
 class App extends Component {
   constructor(props) {
@@ -85,6 +87,9 @@ class App extends Component {
       <div className={classes.App}>
         <hr />
         <UseCallback />
+        <hr />
+        <UseReducer />
+        <ExampleTodo />
         <hr />
         <button onClick={() => { this.setState({ showCockpit: !this.state.showCockpit }) }}>Remove cockpit</button>
         {this.state.showCockpit ? <Cockpit
